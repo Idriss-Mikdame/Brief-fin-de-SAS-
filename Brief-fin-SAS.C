@@ -36,14 +36,34 @@ for(int i=0;i < n;i++){
         printf("La date d'echeance la tache -> %s\n",taches[i].date_echeance);
         printf("La priorite de la tache     -> %s\n",taches[i].priorite);
     }}
+void modifierTache(){
+    int nbrM;
+    printf("Choisire le NBR de tache pour modifier :");
+    scanf("%d",&nbrM);
+       if(nbrM < 1 || nbrM > n){
+        printf("le nbr de tache invalide !!!");
+       }
+       nbrM--;
+        printf("Ajouter pour modifier la tache N : %d\n",n);
+        printf("Taper la tache : ");
+        scanf("%s",taches[nbrM].titre);
+        printf("Taper la description de la tache : ");
+        scanf("%s",taches[nbrM].description);
+        printf("Taper la date d'échéance dd/mm/aa : ");
+        scanf("%s",taches[nbrM].date_echeance);
+        printf("Taper la priorite de la tache : ");
+        scanf("%s",taches[nbrM].priorite);
+        printf("La modification est succes");
 
+}
 int main(){
     int choix;
     do{
         printf("-----MENUE--------\n");
         printf("1: Ajouter une tâche au tableau\n");
         printf("2: Afficher le tableau des tâches\n");
-        printf("3: Quitter le programme\n");
+        printf("3: Ajouter pour modifier une Tache :\n");
+        printf("4: Quitter le programme\n");
         printf("Entrer le choix :");
         scanf("%d",&choix);
         switch(choix){
@@ -52,8 +72,11 @@ int main(){
         case 2:
             afficherTaches();
             break;
-        case 3: printf("BYE!!!!");
+        case 3:
+            modifierTache();
+            break;
+        case 4: printf("BYE!!!!");
             }
-    }while(choix !=3);
+    }while(choix !=4);
     return 0;
 }
