@@ -28,21 +28,32 @@ Tache taches[100];
         n = n + 1;
         }
 }
-
+void afficherTaches(){
+for(int i=0;i < n;i++){
+        printf("l'affichage des informations des taches N-%d\n",i+1);
+        printf("Titre de la tache           -> %s\n",taches[i].titre);
+        printf("La description  de la tache -> %s\n",taches[i].description);
+        printf("La date d'echeance la tache -> %s\n",taches[i].date_echeance);
+        printf("La priorite de la tache     -> %s\n",taches[i].priorite);
+    }}
 
 int main(){
     int choix;
     do{
         printf("-----MENUE--------\n");
         printf("1: Ajouter une tâche au tableau\n");
-        printf("2: Quitter le programme\n");
+        printf("2: Afficher le tableau des tâches\n");
+        printf("3: Quitter le programme\n");
         printf("Entrer le choix :");
         scanf("%d",&choix);
         switch(choix){
         case 1: ajout_tache();
             break;
-        case 2: printf("BYE!!!!");
+        case 2:
+            afficherTaches();
+            break;
+        case 3: printf("BYE!!!!");
             }
-    }while(choix !=2);
+    }while(choix !=3);
     return 0;
 }
